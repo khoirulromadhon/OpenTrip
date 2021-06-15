@@ -16,10 +16,13 @@ use app\Http\Controllers;
 
 
 Auth::routes();
-// Route::get('/', function () {
-//     // return view('auth.login');
+// Route::get('/about', function () {
+//     return view('about');
 // });
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about']);
+Route::get('/blog', [App\Http\Controllers\HomeController::class, 'blog']);
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact']);
 // Route::resource('/','HomeController');

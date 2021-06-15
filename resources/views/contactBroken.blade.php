@@ -1,79 +1,4 @@
-@extends('layouts.app')
-       
-       
-@section('content')
-<div class="tm-header">
-            <div class="container-fluid">
-                <div class="tm-header-inner">
-                    <a href="#" class="navbar-brand tm-site-name">Classic</a>
-                    
-                    <!-- navbar -->
-                    <nav class="navbar tm-main-nav">
 
-                        <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#tmNavbar">
-                            &#9776;
-                        </button>
-                        
-                        <div class="collapse navbar-toggleable-sm" id="tmNavbar">
-                            <ul class="nav navbar-nav">
-                                <li class="nav-item">
-                                    <a href="{{url('/')}}" class="nav-link">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('/about')}}" class="nav-link">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('/blog')}}" class="nav-link">Blog</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a href="{{url('/contact')}}" class="nav-link">Contact</a>
-                                </li>
-                                <li class= "nav-item">
-                                <!-- <a href="contact.html" class="nav-link">A</a> -->
-                                @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                                </li>
-                            </ul>                        
-                        </div>
-                        
-                    </nav>  
-
-                </div>                                  
-            </div>            
-        </div>
-
-        <div class="tm-contact-img-container">
-            
-        </div>
 
         <section class="tm-section">
             <div class="container-fluid">
@@ -229,9 +154,9 @@
 
             </div>
         </section>
-        
+        @endsection
 
-
+        @section('javascript')
         <!-- load JS files -->
         <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
         <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script> <!-- Tether for Bootstrap, http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h --> 
@@ -280,5 +205,4 @@
             });
 
         </script>             
-
-@endsection
+        @endsection

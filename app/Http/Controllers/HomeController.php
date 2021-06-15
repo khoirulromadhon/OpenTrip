@@ -27,4 +27,22 @@ class HomeController extends Controller
         Auth::check();
         return view('index');
     }
+
+    public function about()
+    {
+        Auth::check();
+        return view('about');
+    }
+
+    public function blog()
+    {
+        Auth::check();
+        return view('blog');
+    }
+
+    public function contact()
+    {
+        Auth::check();
+        return view('contact');
+    }
 }
